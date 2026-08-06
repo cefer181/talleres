@@ -1,0 +1,1 @@
+#Dame una función para validar los números de teléfono que tengan 10 dígitos y que sean numéricos.
