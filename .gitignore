@@ -217,3 +217,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Resultado generado automáticamente por el Caso Integrador
+Integrador/data/resultado_procesamiento.json

@@ -1,0 +1,10 @@
+# Dependencias del Proyecto: Gestor de Solicitudes Ficticias de Atención
+# Fase 1: Definición y Planificación
+
+## Testing Framework
+pytest==7.4.3
+pytest-cov==4.1.0
+
+## Utilities (optional, para análisis posterior)
+# SonarQube for IDE se integra directamente en VS Code sin dependencias pip
+# GitHub Copilot se integra directamente en VS Code sin dependencias pip
