@@ -1,0 +1,92 @@
+[
+  {
+    "id_solicitud": "SOL-20260812-001",
+    "solicitante": "Usuario Ficticio Uno",
+    "fecha": "2026-08-12",
+    "tipo": "CONSULTA",
+    "prioridad": "BAJA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 35
+  },
+  {
+    "id_solicitud": "SOL-20260812-002",
+    "solicitante": "Usuario Ficticio Dos",
+    "fecha": "2026-08-12",
+    "tipo": "SOLICITUD",
+    "prioridad": "MEDIA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 120
+  },
+  {
+    "id_solicitud": "SOL-20260812-003",
+    "solicitante": "Usuario Ficticio Tres",
+    "fecha": "2026-08-12",
+    "tipo": "INCIDENCIA",
+    "prioridad": "ALTA",
+    "estado": "EN_PROCESO",
+    "minutos_atencion": 180
+  },
+  {
+    "id_solicitud": "SOL-20260812-004",
+    "solicitante": "Usuario Ficticio Cuatro",
+    "fecha": "2026-08-12",
+    "tipo": "RECLAMO",
+    "prioridad": "CRITICA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 85
+  },
+  {
+    "id_solicitud": "SOL-20260812-005",
+    "solicitante": "Usuario Ficticio Cinco",
+    "fecha": "2026-08-12",
+    "tipo": "OTRO",
+    "prioridad": "BAJA",
+    "estado": "REGISTRADA",
+    "minutos_atencion": 0
+  },
+  {
+    "id_solicitud": "SOL-20260811-006",
+    "solicitante": "Usuario Fecha Inconsistente",
+    "fecha": "2026-08-12",
+    "tipo": "CONSULTA",
+    "prioridad": "MEDIA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 40
+  },
+  {
+    "id_solicitud": "SOL-20260812-007",
+    "solicitante": "Usuario Prioridad Incorrecta",
+    "fecha": "2026-08-12",
+    "tipo": "SOLICITUD",
+    "prioridad": "URGENTE",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 30
+  },
+  {
+    "id_solicitud": "SOL-20260812-008",
+    "solicitante": "Usuario Tiempo Incorrecto",
+    "fecha": "2026-08-12",
+    "tipo": "RECLAMO",
+    "prioridad": "ALTA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": -15
+  },
+  {
+    "id_solicitud": "ABC-0009",
+    "solicitante": "Usuario ID Incorrecto",
+    "fecha": "2026-08-12",
+    "tipo": "CONSULTA",
+    "prioridad": "BAJA",
+    "estado": "ATENDIDA",
+    "minutos_atencion": 20
+  },
+  {
+    "id_solicitud": "SOL-20260812-010",
+    "solicitante": "Usuario Estado Incorrecto",
+    "fecha": "2026-08-12",
+    "tipo": "INCIDENCIA",
+    "prioridad": "MEDIA",
+    "estado": "FINALIZADA",
+    "minutos_atencion": 50
+  }
+]
