@@ -1,414 +1,423 @@
 # Gestor de Solicitudes Ficticias de Atención
 
-## Integrantes del Proyecto
+## 1. Título e integrantes
 
-- **César Jácome**
-- **Ximena Angulo**
-
----
-
-## Descripción del Problema
-
-En contextos empresariales y administrativos, la gestión eficiente de solicitudes de atención es crítica para mantener la satisfacción del usuario y optimizar recursos. Sin embargo, los sistemas de gestión de solicitudes frecuentemente enfrentan desafíos tales como:
-
-1. **Validación inconsistente** de datos de entrada
-2. **Falta de clasificación** automática según prioridad y naturaleza de la solicitud
-3. **Impossibilidad de detectar registros inconsistentes** o malformados
-4. **Ausencia de métricas** para analizar el desempeño del servicio
-5. **Dificultad en la auditabilidad** del procesamiento de solicitudes
-
-Este proyecto aborda estos desafíos mediante el desarrollo de un componente funcional que automatiza la validación, clasificación y procesamiento de solicitudes.
+- Proyecto: Gestor de Solicitudes Ficticias de Atención
+- Integrantes:
+  - César Jácome
+  - Ximena Angulo
 
 ---
 
-## Justificación
+## 2. Introducción
 
-El desarrollo de un **Gestor de Solicitudes Ficticias de Atención** es justificado por:
+Este proyecto implementa un gestor académico para validar, clasificar y procesar solicitudes ficticias de atención. El componente está desarrollado en Python y se centra en la validación de datos, la coherencia interna de la información y la generación de resúmenes operativos con métricas de atención.
 
-1. **Necesidad de validación robusta**: Garantizar que solo solicitudes válidas sean procesadas
-2. **Optimización operativa**: Automatizar tareas repetitivas de validación y clasificación
-3. **Generación de inteligencia de negocio**: Producir métricas y análisis del desempeño
-4. **Mejora de calidad de código**: Aplicar prácticas profesionales de desarrollo asistido con IA
-5. **Aseguramiento de la calidad**: Implementar estrategias rigurosas de testing y análisis estático
+La finalidad del caso integrador es demostrar el desarrollo de software con calidad, pruebas automatizadas y análisis estático, usando exclusivamente datos ficticios.
+
+> Todos los datos utilizados en este proyecto son ficticios y no corresponden a personas, entidades ni registros reales.
 
 ---
 
-## Objetivo General
+## 3. Descripción del problema
 
-Desarrollar un componente funcional en Python que simule la recepción, validación, clasificación y procesamiento de solicitudes ficticias de atención, aplicando prácticas profesionales de desarrollo asistido con GitHub Copilot y aseguramiento de la calidad mediante pruebas automatizadas y análisis de código.
+En escenarios administrativos y de atención al usuario, es habitual recibir solicitudes con información incompleta, inconsistente o mal formateada. Si esos datos no se validan correctamente, se pueden procesar registros inválidos, generar métricas engañosas y comprometer la calidad del servicio.
 
----
-
-## Objetivos Específicos
-
-1. **Validación de campos obligatorios**: Garantizar que todas las solicitudes contengan información requerida
-2. **Validación de identificadores ficticios**: Verificar formatos y coherencia de IDs de solicitud y cliente
-3. **Validación de fechas**: Asegurar que las fechas sean válidas y coherentes
-4. **Validación de prioridades**: Verificar que las prioridades se ajusten a valores permitidos
-5. **Validación de estados**: Confirmar que los estados de solicitud sean válidos
-6. **Validación de tiempos de atención**: Verificar que los tiempos cumplan criterios de plausibilidad
-7. **Detección de registros inconsistentes**: Identificar y descartar solicitudes con datos contradictorios
-8. **Clasificación de solicitudes**: Categorizar solicitudes según criterios predefinidos
-9. **Generación de métricas**: Calcular totales, promedios y estadísticas de desempeño
-10. **Creación de reportes**: Generar resúmenes ejecutivos del procesamiento
+El proyecto resuelve esta situación mediante la validación de cada solicitud, la detección de incoherencias, el descarte de registros inválidos y la generación de métricas de operación.
 
 ---
 
-## Alcance Funcional
+## 4. Justificación
 
-### Funcionalidades Previstas
+La solución se justifica por la necesidad de aplicar buenas prácticas de programación y aseguramiento de la calidad en un caso académico basado en un flujo realista de validación de datos y análisis operativo.
 
-El componente `gestor_solicitudes` implementará las siguientes funcionalidades:
-
-- **Carga de datos**: Importar solicitudes desde archivos JSON
-- **Validación integral**: Ejecutar todas las validaciones descritas en objetivos específicos
-- **Limpieza de datos**: Descartar solicitudes inválidas con registro del motivo
-- **Clasificación automática**: Asignar categorías a solicitudes válidas
-- **Cálculo de métricas**:
-  - Total de solicitudes válidas procesadas
-  - Total de solicitudes descartadas
-  - Promedio de tiempo de atención
-  - Distribución por prioridad
-  - Distribución por estado
-  - Tasa de rechazo
-- **Generación de reportes**: Producir salidas estructuradas (JSON, diccionarios Python)
-- **Auditabilidad**: Mantener trazabilidad de decisiones de validación
+Además, permite demostrar la utilidad de GitHub Copilot como apoyo al desarrollo, junto con testing automatizado y análisis estático con SonarQube for IDE.
 
 ---
 
-## Estructura de Datos Propuesta
+## 5. Objetivo general
 
-### Esquema de una Solicitud
-
-Una solicitud de atención tendrá la siguiente estructura JSON:
-
-```json
-{
-  "id_solicitud": "SOL-20260812-001",
-  "id_cliente": "CLI-FIC-0042",
-  "fecha_creacion": "2026-08-12T09:30:00Z",
-  "fecha_vencimiento": "2026-08-19T23:59:59Z",
-  "asunto": "Consulta técnica sobre funcionalidad del sistema",
-  "descripcion": "Se requiere asistencia para configurar el módulo de reportes...",
-  "prioridad": "MEDIA",
-  "estado": "EN_PROCESO",
-  "categoria": "SOPORTE_TECNICO",
-  "tiempo_atension_horas": 4.5,
-  "asignado_a": "AGENTE-003",
-  "notas_internas": "Cliente VIP, atender con preferencia"
-}
-```
-
-### Campos Obligatorios
-
-- `id_solicitud`
-- `id_cliente`
-- `fecha_creacion`
-- `fecha_vencimiento`
-- `asunto`
-- `prioridad`
-- `estado`
-- `tiempo_atension_horas`
-
-### Campos Opcionales
-
-- `descripcion`
-- `categoria`
-- `asignado_a`
-- `notas_internas`
+Desarrollar un gestor funcional para solicitudes ficticias de atención que valide, procese, clasifique y resuma información utilizando Python, datos ficticios, pruebas automatizadas y análisis estático de calidad.
 
 ---
 
-## Prioridades Permitidas
+## 6. Objetivos específicos
 
-```python
-PRIORIDADES_VALIDAS = {
-    "BAJA": 1,
-    "MEDIA": 2,
-    "ALTA": 3,
-    "CRITICA": 4
-}
-```
-
----
-
-## Estados Permitidos
-
-```python
-ESTADOS_VALIDOS = {
-    "PENDIENTE",
-    "EN_PROCESO",
-    "RESUELTA",
-    "CERRADA",
-    "RECHAZADA"
-}
-```
+1. Validar campos obligatorios y formatos básicos.
+2. Validar identificadores de solicitud con patrón realista.
+3. Validar solicitantes con longitud y caracteres permitidos.
+4. Validar fechas con formato estricto YYYY-MM-DD.
+5. Validar tipos, prioridades y estados permitidos.
+6. Validar tiempos de atención dentro de un rango lógico.
+7. Detectar incoherencias entre ID y fecha.
+8. Detectar incoherencias entre estado y tiempo de atención.
+9. Procesar listas de solicitudes y descartar las inválidas.
+10. Generar resúmenes y métricas de tiempo, distribución y SLA.
+11. Cargar y guardar resultados en JSON.
+12. Verificar el comportamiento mediante pruebas automatizadas.
+13. Corregir defectos detectados por pytest y por SonarQube for IDE.
 
 ---
 
-## Categorías de Clasificación
+## 7. Alcance
 
-```python
-CATEGORIAS_VALIDAS = {
-    "SOPORTE_TECNICO",
-    "FACTURACION",
-    "CUENTA",
-    "PRODUCTO",
-    "OTROS"
-}
-```
+El alcance del proyecto incluye:
 
----
+- validación de una solicitud individual;
+- validación de una colección de solicitudes;
+- cálculo de métricas de desempeño;
+- control de distribuciones por prioridad, estado y tipo;
+- control de SLA por prioridad;
+- carga desde JSON y escritura de resumen JSON;
+- pruebas unitarias, parametrizadas, de límites y de integración;
+- revisión humana de sugerencias de IA.
 
-## Tecnologías Utilizadas
-
-### Lenguaje y Framework
-
-- **Python 3.8+**: Lenguaje principal de desarrollo
-- **Estándar POSIX**: Para operaciones de archivo y sistema
-
-### Dependencias de Producción
-
-- (Ninguna dependencia externa requerida para la Fase 1 - se utilizan módulos estándar)
-
-### Dependencias de Desarrollo y Testing
-
-- **pytest**: Framework de pruebas unitarias
-- **pytest-cov**: Plugin para cobertura de código
-
-### Herramientas de Análisis y Calidad
-
-- **GitHub Copilot**: Asistencia en codificación
-- **SonarQube for IDE**: Análisis estático de código (Local Code Analysis)
-- **Git/GitHub**: Control de versiones y colaboración
+No se contempla un backend web ni persistencia real en base de datos. El proyecto es un módulo académico de validación y procesamiento en Python.
 
 ---
 
-## Estructura del Proyecto
+## 8. Arquitectura y estructura de carpetas
 
-```
+```text
 Integrador/
-├── README.md                           # Este archivo
-├── PLAN_TRABAJO.md                     # Plan de trabajo detallado
-├── requirements.txt                    # Dependencias del proyecto
+├── README.md
+├── PLAN_TRABAJO.md
+├── requirements.txt
 ├── src/
-│   └── gestor_solicitudes.py           # Módulo principal del gestor
+│   └── gestor_solicitudes.py
 ├── tests/
-│   └── test_gestor_solicitudes.py      # Suite de pruebas unitarias
+│   └── test_gestor_solicitudes.py
 ├── data/
-│   └── solicitudes_ejemplo.json        # Datos ficticios para testing
-└── docs/
-    └── evidencias/                     # Documentación y evidencias de proceso
+│   └── solicitudes_ejemplo.json
+├── docs/
+│   └── evidencias/
+└── __init__.py (si aplica según entorno)
 ```
 
-### Descripción de Directorios
+### Módulos principales
 
-- **src/**: Código fuente del componente funcional
-- **tests/**: Casos de prueba y suite de testing
-- **data/**: Datos ficticios utilizados en validación y testing
-- **docs/**: Documentación técnica y evidencias del desarrollo
-
----
-
-## Metodología de Trabajo
-
-### Enfoque de Desarrollo
-
-1. **Desarrollo Asistido con IA**: Utilizar GitHub Copilot como asistente principal para acelerar codificación y generar propuestas de solución
-2. **Test-Driven Development (TDD)**: Diseñar casos de prueba antes de implementar funcionalidad
-3. **Iterativo e Incremental**: Desarrollar en ciclos cortos con validación continua
-4. **Pair Programming**: Revisar mutuamente el código generado y las decisiones
-
-### Colaboración
-
-- **Rama principal (`main`)**: Código estable y probado
-- **Rama de desarrollo (`develop`)**: Rama base para features
-- **Ramas de feature**: `feature/validacion-campos`, `feature/clasificacion`, etc.
-- **Pull Requests**: Requieren revisión de pares antes de merge
+- src/gestor_solicitudes.py: módulo principal con validadores, reglas de coherencia, procesamiento y resumen.
+- tests/test_gestor_solicitudes.py: baterías automatizadas de pruebas.
+- data/solicitudes_ejemplo.json: conjunto ficticio de 10 solicitudes usado para verificación e integración.
 
 ---
 
-## Estrategia de Pruebas
+## 9. Descripción de los datos
 
-### Niveles de Testing
+El archivo JSON de ejemplo contiene 10 solicitudes ficticias con una mezcla realista de casos válidos e inválidos. El contenido cubre:
 
-1. **Pruebas Unitarias**: Validar cada función de manera aislada
-   - Validación de campos individuales
-   - Lógica de clasificación
-   - Cálculo de métricas
+- identificadores correctos e incorrectos;
+- fechas válidas y no válidas;
+- prioridades correctas e incorrectas;
+- tiempos válidos e inválidos;
+- estados permitidos y no permitidos;
+- distintos tipos de solicitud;
+- alerta SLA relacionada con prioridad CRITICA.
 
-2. **Pruebas de Integración**: Validar el flujo completo de procesamiento
-   - Carga de datos → Validación → Clasificación → Métricas
-
-3. **Pruebas de Caso Límite**: Validar comportamiento en escenarios extremos
-   - Datos vacíos
-   - Valores nulos
-   - Strings especiales
-   - Fechas inválidas
-   - Números negativos/cero
-
-### Framework y Herramientas
-
-- **pytest**: Framework de testing
-- **pytest-cov**: Medición de cobertura de código
-- **Objetivo de cobertura**: Mínimo 80% de cobertura de líneas
-
-### Estrategia de Test Data
-
-- Datos ficticios completamente inventados
-- Casos válidos y casos inválidos
-- Casos límite y anomalías
+Cada registro está construido con datos inventados y no representa una entidad real.
 
 ---
 
-## Uso Previsto de GitHub Copilot
+## 10. Reglas funcionales
 
-### Aplicaciones Planificadas
+El módulo implementa las siguientes reglas:
 
-1. **Generación de código boilerplate**: Estructura base de funciones y clases
-2. **Implementación de validadores**: Funciones de validación de campos
-3. **Lógica de clasificación**: Algoritmos de categorización
-4. **Cálculo de métricas**: Funciones de agregación y estadística
-5. **Generación de pruebas**: Casos de prueba unitarios y de integración
-6. **Documentación de código**: Docstrings y comentarios explicativos
-
-### Restricciones de Uso
-
-- ✅ Usar para acelerar desarrollo
-- ✅ Generar propuestas que revisaremos críticamente
-- ❌ No aceptar código sin comprensión
-- ❌ No utilizar soluciones inseguras o de baja calidad
-- ❌ No generar datos reales en ejemplos
+- `id_solicitud` debe seguir el formato `SOL-YYYYMMDD-NNN`.
+- La fecha incluida en el ID debe corresponder a una fecha real.
+- `solicitante` debe existir, tener entre 3 y 100 caracteres y comenzar con una letra.
+- `fecha` debe respetar el formato estricto `YYYY-MM-DD`.
+- La fecha no puede ser anterior a 1950 ni posterior a 2100.
+- `tipo` debe ser uno de: `CONSULTA`, `SOLICITUD`, `RECLAMO`, `INCIDENCIA`, `OTRO`.
+- `prioridad` debe ser una de: `BAJA`, `MEDIA`, `ALTA`, `CRITICA`.
+- `estado` debe ser uno de: `REGISTRADA`, `EN_PROCESO`, `ATENDIDA`, `CANCELADA`.
+- `minutos_atencion` debe ser numérico, finito y estar entre 0 y 10080.
+- `id_solicitud` y `fecha` deben ser coherentes.
+- Si `estado` es `REGISTRADA`, no puede existir tiempo de atención acumulado.
+- En caso de que la solicitud no sea válida, se descarta del procesamiento y se registra el motivo.
 
 ---
 
-## Análisis de Calidad y Seguridad con SonarQube for IDE
+## 11. Prioridades, estados y tipos permitidos
 
-### Métricas a Evaluar
+### Prioridades
 
-1. **Cobertura de código**: Mínimo 80%
-2. **Duplicación de código**: < 5%
-3. **Complejidad ciclomática**: < 10 por método
-4. **Code smells**: Ninguno crítico
-5. **Vulnerabilidades**: Cero
-6. **Security hotspots**: Revisión manual completa
+- BAJA
+- MEDIA
+- ALTA
+- CRITICA
 
-### Tipos de Análisis
+### Estados
 
-- **Análisis Local (on-the-fly)**: Validación en tiempo de desarrollo
-- **Análisis Conectado (Connected Mode)**: Sincronización con instancia central (si aplica)
+- REGISTRADA
+- EN_PROCESO
+- ATENDIDA
+- CANCELADA
 
-### Acciones Previstas
+### Tipos de solicitud
 
-- Ejecutar análisis tras completar cada fase de desarrollo
-- Resolver todos los problemas críticos antes de merge
-- Documentar justificaciones de problemas no resueltos
+- CONSULTA
+- SOLICITUD
+- RECLAMO
+- INCIDENCIA
+- OTRO
 
 ---
 
-## Estrategia de Ramas y Pull Requests
+## 12. SLA utilizado
 
-### Modelo de Branching
+El módulo usa un SLA ficticio expresado en minutos por prioridad:
 
-Seguiremos un modelo modificado de Git Flow:
+| Prioridad | SLA (minutos) |
+|---|---:|
+| CRITICA | 60 |
+| ALTA | 240 |
+| MEDIA | 1440 |
+| BAJA | 2880 |
 
-```
-main (estable)
-  ↓ (PR revisado)
-develop (integración)
-  ├── feature/validadores
-  ├── feature/clasificacion
-  ├── feature/metricas
-  └── feature/pruebas
+Una solicitud genera una alerta cuando el tiempo de atención supera el límite de su prioridad.
+
+---
+
+## 13. Requisitos del entorno
+
+- Python 3.12.10
+- pytest 7.4.3
+- pytest-cov 4.1.0
+- Sistema operativo Windows 11
+- No se requieren dependencias externas adicionales para la lógica principal
+
+---
+
+## 14. Instalación
+
+1. Abrir el proyecto en el entorno de trabajo.
+2. Ubicarse en la raíz del repositorio.
+3. Crear un entorno virtual si se desea.
+4. Instalar dependencias:
+
+```bash
+pip install -r Integrador/requirements.txt
 ```
 
-### Convenciones de Naming
+---
 
-- **Features**: `feature/nombre-descriptivo`
-- **Bugfixes**: `bugfix/descripcion-del-error`
-- **Documentación**: `docs/tema`
-- **Testing**: `test/nombre-del-test`
+## 15. Ejecución
 
-### Proceso de Pull Request
+Para ejecutar el módulo principal:
 
-1. Crear rama desde `develop`
-2. Desarrollar e implementar funcionalidad
-3. Crear PR contra `develop`
-4. Ejecutar validaciones (tests, linting, análisis)
-5. Revisión de código (mínimo 1 revisor)
-6. Resolver comentarios
-7. Merge a `develop`
-8. Eventual release PR a `main`
+```bash
+python Integrador/src/gestor_solicitudes.py
+```
 
-### Criterios de Aceptación para PR
-
-- ✅ Tests pasan (cobertura ≥ 80%)
-- ✅ SonarQube: Sin problemas críticos
-- ✅ Revisión de código aprobada
-- ✅ Documentación actualizada
-- ✅ Commits con mensajes claros (formato convencional)
+El módulo puede cargar datos ficticios desde JSON, validar solicitudes y mostrar un resumen de resultados.
 
 ---
 
-## Consideraciones de Seguridad y Confidencialidad
+## 16. Comandos principales
 
-### Principios de Seguridad
+### Ejecutar pruebas
 
-1. **Datos Ficticios Exclusivamente**: 
-   - No utilizar información real de clientes, empleados o instituciones
-   - No incorporar credenciales, contraseñas, tokens o APIs reales
-   - No referenciar datos personales identificables (PII)
+```bash
+python -m pytest Integrador/tests/test_gestor_solicitudes.py -q
+```
 
-2. **Validación de Entrada**:
-   - Validar y sanitizar todos los datos de entrada
-   - Limitar longitudes de strings
-   - Validar formatos de datos
+### Ejecutar pruebas con cobertura
 
-3. **Gestión de Errores**:
-   - No revelar información sensible en mensajes de error
-   - Registrar errores sin comprometer confidencialidad
-   - Implementar logging seguro
+```bash
+python -m pytest Integrador/tests --cov=Integrador.src.gestor_solicitudes --cov-report=term-missing
+```
 
-4. **Control de Acceso**:
-   - Mantener código fuente en repositorio privado si es necesario
-   - Documentar procedimientos de control de cambios
+### Ejecutar pruebas con salida detallada
 
-### Confidencialidad de Datos de Desarrollo
-
-- 🚫 No incluir credenciales en archivos de configuración
-- 🚫 No registrar datos sensibles en logs
-- 🚫 No documentar información real de organizaciones
-- ✅ Usar nombres ficticios consistentes (CLI-FIC-XXXX, AGENTE-XXX)
-- ✅ Mantener trazabilidad de cambios mediante Git
+```bash
+python -m pytest Integrador/tests/test_gestor_solicitudes.py -v
+```
 
 ---
 
-## Cronograma Estimado
+## 17. Pruebas automatizadas
 
-| Fase | Descripción | Duración Estimada |
-|------|-------------|------------------|
-| 1 | Definición y Planificación | 2-3 horas |
-| 2 | Desarrollo Asistido | 4-5 horas |
-| 3 | Datos Ficticios | 1-2 horas |
-| 4 | Diseño de Casos de Prueba | 2-3 horas |
-| 5 | Pruebas Unitarias e Integración | 3-4 horas |
-| 6 | Análisis de Resultados | 1-2 horas |
-| 7 | Corrección y Refactorización | 2-3 horas |
-| 8 | Análisis SonarQube | 1-2 horas |
-| 9-13 | Documentación, Git y Presentación | 3-4 horas |
-| **Total** | | **20-30 horas** |
+Se implementó una suite de pruebas automatizadas con pytest que incluye:
 
----
+- pruebas unitarias;
+- pruebas parametrizadas;
+- pruebas de valores límite;
+- pruebas de manejo de errores;
+- pruebas de excepciones;
+- pruebas sobre JSON y archivos temporales;
+- pruebas de integración con solicitudes ficticias.
 
-## Referencias y Recursos
+### Resultado real
 
-- **Python Documentation**: https://docs.python.org/3/
-- **pytest Documentation**: https://docs.pytest.org/
-- **GitHub Copilot**: https://github.com/features/copilot
-- **SonarQube**: https://www.sonarsource.com/
+- 61 casos efectivos recolectados.
+- 61 casos PASSED.
+- Python 3.12.10.
+- pytest 7.4.3.
+- pytest-cov 4.1.0.
 
 ---
 
-**Versión**: 1.0  
-**Última actualización**: 2026-08-12  
-**Estado**: Fase 1 - Planificación
+## 18. Cobertura alcanzada
+
+La cobertura del módulo principal reportada por pytest-cov fue:
+
+- 79 % de cobertura del módulo `Integrador.src.gestor_solicitudes`
+
+Esto refleja la evidencia real del proyecto en el entorno de ejecución utilizado.
+
+---
+
+## 19. Defecto identificado mediante pytest
+
+Durante la ejecución de la batería, pytest detectó un defecto real en la validación de fechas. El caso fallaba al aceptar una fecha como:
+
+```python
+"2026-8-12"
+```
+
+La especificación exigía el formato estricto:
+
+```python
+YYYY-MM-DD
+```
+
+El defecto real fue que la función `validar_fecha` aceptaba fechas parcialmente formateadas. El equipo revisó críticamente la sugerencia inicial de cambiar la expectativa de la prueba y decidió mantener la prueba, corrigiendo la implementación.
+
+---
+
+## 20. Corrección aplicada
+
+Se corrigió `validar_fecha` con una validación estricta de formato antes de realizar la conversión a fecha. Esta corrección garantizó que:
+
+- solo se acepten fechas con formato `YYYY-MM-DD`;
+- cadenas como `2026-8-12` y `2026-08-2` sean rechazadas;
+- las fechas anteriores a 1950 y posteriores a 2100 sigan siendo rechazadas;
+- la implementación quede alineada con la especificación funcional del proyecto.
+
+La corrección fue validada con la ejecución exitosa completa de la batería de pruebas.
+
+---
+
+## 21. Análisis con SonarQube for IDE
+
+Se ejecutó análisis estático del código propio con SonarQube for IDE.
+
+### Estado inicial
+
+- 5 hallazgos en código propio.
+- 4 en `gestor_solicitudes.py`.
+- 1 en `test_gestor_solicitudes.py`.
+
+### Estado final
+
+- 0 hallazgos en el código propio.
+
+### Observación importante
+
+Los 21 hallazgos visibles en `builtins.py` son externos al proyecto y no forman parte del código desarrollado en este caso integrador.
+
+---
+
+## 22. Comparación antes y después de SonarQube
+
+| Aspecto | Estado inicial | Estado final |
+|---|---:|---:|
+| Hallazgos del proyecto | 5 | 0 |
+| Hallazgos en gestor_solicitudes.py | 4 | 0 |
+| Hallazgos en test_gestor_solicitudes.py | 1 | 0 |
+| Hallazgos externos (builtins.py) | 21 | 21 |
+
+La reducción de hallazgos del proyecto fue completa en el código propio, y el componente quedó limpio respecto a los elementos analizados.
+
+---
+
+## 23. Uso de GitHub Copilot
+
+GitHub Copilot fue usado como apoyo durante distintas etapas del proyecto:
+
+- revisión de la planificación;
+- propuesta de diseño técnico;
+- completions inline;
+- apoyo en generación de pruebas;
+- ampliación controlada de la batería de pruebas;
+- análisis de errores;
+- refactorización orientada a hallazgos SonarQube.
+
+Todas las sugerencias fueron revisadas por el equipo antes de aceptarse.
+
+---
+
+## 24. Revisión humana de las sugerencias de IA
+
+La revisión humana fue un componente crítico del flujo de trabajo. Se evaluó que cada sugerencia fuese coherente con la especificación y con la lógica del proyecto, evitando cambios que solo hicieran pasar una prueba sin respetar las reglas funcionales.
+
+En particular, cuando se sugirió cambiar la expectativa de la prueba para aceptar una fecha inválida, el equipo decidió mantener la prueba original y corregir la implementación.
+
+---
+
+## 25. Estrategia Git
+
+El proyecto se trabajó siguiendo una estrategia de ramas orientada a la trazabilidad:
+
+- rama de desarrollo: `feature/caso-integrador`
+- rama base: `main`
+- el Pull Request todavía no ha sido creado
+
+La estrategia buscó mantener trabajo organizado, revisado y controlado por fases.
+
+---
+
+## 26. Resultados finales
+
+La ejecución funcional del proyecto dio los siguientes resultados reales:
+
+- 10 solicitudes ficticias procesadas.
+- 5 solicitudes válidas.
+- 5 solicitudes descartadas.
+- Tasa de aceptación: 50.0 %.
+- Tasa de rechazo: 50.0 %.
+- Promedio de atención: 84.0 minutos.
+- Se generó una alerta SLA para `SOL-20260812-004`.
+- Prioridad de la alerta: `CRITICA`.
+- Exceso del SLA: 25 minutos.
+
+Estos resultados se verificaron con la muestra real de ejemplo cargada desde el archivo JSON del proyecto.
+
+---
+
+## 27. Conclusiones
+
+El proyecto cumple con los requisitos académicos y funcionales planteados. Se desarrolló una solución modular, verificable y documentada para el procesamiento de solicitudes ficticias de atención. La combinación entre pruebas automatizadas, detección de defectos, análisis estático y revisión humana permitió fortalecer la calidad del componente y demostrar un enfoque profesional de desarrollo.
+
+Los puntos más relevantes fueron:
+
+- la validación estricta de fechas;
+- la capacidad de descartar elementos inválidos sin romper el flujo general;
+- la generación de métricas y alertas por SLA;
+- la resolución de hallazgos en SonarQube;
+- la evidencia cuantificada de pruebas y cobertura.
+
+---
+
+## 28. Seguridad y confidencialidad
+
+El proyecto fue diseñado con un enfoque de confidencialidad y uso responsable de la información:
+
+- no se utilizan datos reales;
+- los registros son ficticios y académicos;
+- no se gestionan identificadores personales reales;
+- la documentación y las pruebas no contienen información sensible;
+- el proyecto se presenta como un caso de estudio técnico y formativo.
+
+---
+
+## 29. Declaración final sobre los datos
+
+Todos los datos del proyecto son ficticios, diseñados exclusivamente con fines académicos y de validación técnica. No representan datos de clientes, usuarios ni organizaciones reales.
+
+---
+
+## 30. Cierre
+
+El caso integrador se considera concluido en su etapa de análisis, implementación, pruebas y validación. El módulo principal, la suite automatizada y la documentación final evidencian una solución funcional, controlada y revisada, con resultados reales verificados y una calidad de código mejorada.
+
